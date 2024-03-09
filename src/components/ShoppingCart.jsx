@@ -7,12 +7,11 @@ const ShoppingCart = () => {
 
     const addItemToCart = (itemName) => {
         const itemIndex = cart.findIndex(item => item.name === itemName);
-        console.log(cart);
 
         if (itemIndex != -1) {
             // item already in cart
             const updatedCartItems = [...cart];
-            updatedCartItems[itemIndex] = {...updatedCartItems[itemIndex],count:updatedCartItems[itemIndex]+1};
+            updatedCartItems[itemIndex] = {...updatedCartItems[itemIndex],count:updatedCartItems[itemIndex].count+1};
             setCart(updatedCartItems);
         } else {
             // item not yet in cart
@@ -20,19 +19,15 @@ const ShoppingCart = () => {
         }
     }
 
+    const displayCart = cart.map((item) => <li>{item.name} - Quantity: {item.count}</li>);
+
     return (
         <div>
             <div>
                 <div>Current Card:</div>
                 <ul>
-                    {cart.map((item) => {
-                        <li>
-                            {item.name} - Quantity: {item.count}
-                        </li>
-                    })}
+                    {displayCart}
                 </ul>
-                <button onClick={() => addItemToCart("Shoes")}>Add Shoes</button>
-                <button onClick={() => addItemToCart("Shirt")}>Add Shirt</button>
             </div>
             <Outlet />
         </div>

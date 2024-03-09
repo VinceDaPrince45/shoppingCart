@@ -16,12 +16,13 @@ const Medicine = () => {
     return (
         <div>
             <h1>Medicine</h1>
+            <div>
+                <Link to="/cart/items">Go to items</Link>
+                <Link to="/cart/pokeball">Go to pokeballs</Link>
+            </div>
             <ul>
                 {medList}
             </ul>
-            <div>
-                <Link to="/">Home</Link>
-            </div>
         </div>
     );  
 };

@@ -20,12 +20,13 @@ const Pokeballs = () => {
     return (
         <div>
             <h1>PokeBalls</h1>
+            <div>
+                <Link to="/cart/items">Go to items</Link>
+                <Link to="/cart/medicine">Go to medicine</Link>
+            </div>
             <ul>
                 {pokeballList}
             </ul>
-            <div>
-                <Link to="/">Home</Link>
-            </div>
         </div>
     );  
 };

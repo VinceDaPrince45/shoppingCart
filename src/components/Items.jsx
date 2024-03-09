@@ -11,13 +11,14 @@ const Items = () => {
             .catch((error) => console.log(error));
     }, []);
 
-    const list = itemList.map(item => <li>{item.name}</li>);
+    const list = itemList.map(item => <li key={item.name}>{item.name}</li>);
 
     return (
         <div>
             <h1>Items</h1>
             <div>
                 <Link to="/cart/medicine">Go to medicine</Link>
+                <div> </div>
                 <Link to="/cart/pokeball">Go to pokeballs</Link>
             </div>
             <ul>

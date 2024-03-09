@@ -1,6 +1,18 @@
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 
+// need to make component that I will pass each item into that will allow for addinng/removing to cart
+
+function PokemonInput({name}) {
+    return (
+        <li>
+            {name}
+            <button>+1</button>
+            <button>-1</button>
+        </li>
+    );
+}
+
 const Pokeballs = () => {
     const [pokeballs,setPokeballs] = useState([]);
 
@@ -15,13 +27,14 @@ const Pokeballs = () => {
             .catch((error) => console.log(error));
     }, []);
 
-    const pokeballList = pokeballs.map(ball => <li>{ball.name}</li>);
+    const pokeballList = pokeballs.map(ball => <PokemonInput name={ball.name} key={ball.name}/>);
 
     return (
         <div>
             <h1>PokeBalls</h1>
             <div>
                 <Link to="/cart/items">Go to items</Link>
+                <div> </div>
                 <Link to="/cart/medicine">Go to medicine</Link>
             </div>
             <ul>

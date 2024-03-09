@@ -24,14 +24,16 @@ const ShoppingCart = () => {
     return (
         <div>
             <div>
-                <div>Current Card:</div>
+                <div>Current Cart:</div>
                 <ul>
                     {displayCart}
                 </ul>
             </div>
-            <Outlet />
+            <Outlet /> 
         </div>
     );
+    // will need to pass the cart and setCart as components to Outlet so each rendered component will be able to access the cart
+    // ex. <Outlet cart={cart} setCart={setCart} addToCart={addItemToCart} />
 }
 
 export default ShoppingCart;

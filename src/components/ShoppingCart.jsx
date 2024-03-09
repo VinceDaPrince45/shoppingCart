@@ -19,6 +19,28 @@ const ShoppingCart = () => {
         }
     }
 
+    const removeItemFromCart = (itemName) => {
+        const updatedCartItems = cart.filter(item => item.name !== itemName);
+        setCart(updatedCartItems);
+    }
+
+    const decrementItem = (itemName) => {
+        const itemIndex = cart.findIndex(item => item.name === itemName);
+        // if item found in cart
+        if (itemIndex != -1) {
+            const updatedCartItems = [...cart];
+            if (updatedCartItems[itemIndex].count > 1) {
+                updatedCartItems[itemIndex] = {
+                    ...updatedCartItems[itemIndex],
+                    count: updatedCartItems[itemIndex].count - 1
+                };
+                setCartItems(updatedCartItems);
+            } else {
+                removeItemFromCart(itemName);
+            }
+        }
+    }
+
     const displayCart = cart.map((item) => <li>{item.name} - Quantity: {item.count}</li>);
 
     return (
@@ -29,7 +51,7 @@ const ShoppingCart = () => {
                     {displayCart}
                 </ul>
             </div>
-            <Outlet /> 
+            <Outlet cart={cart} setCart={setCart} addToCart={addItemToCart} />
         </div>
     );
     // will need to pass the cart and setCart as components to Outlet so each rendered component will be able to access the cart

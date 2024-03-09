@@ -6,7 +6,7 @@ const Choice = () => {
             Choose what you want to buy
             <ul>
                 <li>
-                    <Link to="/">Items</Link>
+                    <Link to="items">Items</Link>
                 </li>
                 <li>
                     <Link to="medicine">Medicine</Link>

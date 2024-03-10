@@ -5,8 +5,8 @@ function ItemInput({name,add,remove}) {
     return (
         <li>
             {name}
-            <button onClick={()=>add(name)}>+1</button>
-            <button onClick={()=>remove(name)}>-1</button>
+            <button onClick={()=>add(name)}>+</button>
+            <button onClick={()=>remove(name)}>-</button>
         </li>
     );
 }
@@ -28,11 +28,17 @@ const Items = () => {
         <div>
             <h1>Items</h1>
             <div>
-                <Link to="/cart/medicine">Go to medicine</Link>
+                <button>
+                    <Link to="/cart/medicine">Go to medicine</Link>
+                </button>
                 <div> </div>
-                <Link to="/cart/pokeball">Go to pokeballs</Link>
+                <button>
+                    <Link to="/cart/pokeball">Go to pokeballs</Link>
+                </button>
                 <div> </div>
-                <Link to="/">Home</Link>
+                <button>
+                    <Link to="/">Home</Link>
+                </button>
             </div>
             <ul>
                 {list}

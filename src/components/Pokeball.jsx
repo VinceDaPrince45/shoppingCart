@@ -7,8 +7,8 @@ function PokemonInput({name,add,remove}) {
     return (
         <li>
             {name}
-            <button onClick={()=>add(name)}>+1</button>
-            <button onClick={()=>remove(name)}>-1</button>
+            <button onClick={()=>add(name)}>+</button>
+            <button onClick={()=>remove(name)}>-</button>
         </li>
     );
 }
@@ -34,11 +34,17 @@ const Pokeballs = () => {
         <div>
             <h1>PokeBalls</h1>
             <div>
-                <Link to="/cart/items">Go to items</Link>
-                <div> </div>
-                <Link to="/cart/medicine">Go to medicine</Link>
-                <div> </div>
-                <Link to="/">Home</Link>
+                <button>
+                    <Link to="/cart/items">Go to items</Link>
+                </button>
+                <div></div>
+                <button>
+                    <Link to="/cart/medicine">Go to medicine</Link>
+                </button>
+                <div></div>
+                <button>
+                    <Link to="/">Home</Link>
+                </button>
             </div>
             <ul>
                 {pokeballList}

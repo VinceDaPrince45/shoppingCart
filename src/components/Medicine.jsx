@@ -5,8 +5,8 @@ function MedicineInput({name,add,remove}) {
     return (
         <li>
             {name}
-            <button onClick={()=>add(name)}>+1</button>
-            <button onClick={()=>remove(name)}>-1</button>
+            <button onClick={()=>add(name)}>+</button>
+            <button onClick={()=>remove(name)}>-</button>
         </li>
     );
 }
@@ -18,7 +18,10 @@ const Medicine = () => {
     useEffect(() => {
         fetch("https://pokeapi.co/api/v2/item-category/27/?limit=100000&offset=0.", { mode: "cors"})
             .then((response) => response.json())
-            .then((response) => setMedicineList(response.items))
+            .then((response) => {
+                console.log(response.items);
+                setMedicineList(response.items);
+            })
             .catch((error) => console.log(error));
     }, []);
 
@@ -28,11 +31,17 @@ const Medicine = () => {
         <div>
             <h1>Medicine</h1>
             <div>
-                <Link to="/cart/items">Go to items</Link>
+                <button>
+                    <Link to="/cart/items">Go to items</Link>
+                </button>
                 <div> </div>
-                <Link to="/cart/pokeball">Go to pokeballs</Link>
+                <button>
+                    <Link to="/cart/pokeball">Go to pokeballs</Link>
+                </button>
                 <div> </div>
-                <Link to="/">Home</Link>
+                <button>
+                    <Link to="/">Home</Link>
+                </button>
             </div>
             <ul>
                 {medList}

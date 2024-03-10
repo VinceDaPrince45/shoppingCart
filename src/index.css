@@ -16,12 +16,12 @@
   
   .framed {
     position: relative;
+    background-color:white;
     border-image: url("./assets/images/frame-hd.png") 42 round;
     border-width: 21px;
     border-style: solid;
     padding: 1em;
     margin: 1em 0 0 0;
-    width: 100%;
     max-width: 100%; }
     .framed.no-hd {
       border-image: url("./assets/images/frame.png") 7 round;
@@ -1790,12 +1790,27 @@
     .opponent {
       padding: 0.5em; } }
   
-  # sourceMappingURL=index.css.map
+  /* # sourceMappingURL=index.css.map */
 
   ul {
-    list-style-type: none;
+    list-style-type:none;
   }
 
   a {
     text-decoration: none;
   }
+
+  body {
+    background-image: url("./assets/images/pokemartbackground.png");
+    height:100vh;
+    background-size:cover;
+  }
+
+  .home {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+  }
+

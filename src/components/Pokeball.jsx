@@ -1,20 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link,useOutletContext } from "react-router-dom";
 import { useState,useEffect } from "react";
 
 // need to make component that I will pass each item into that will allow for addinng/removing to cart
 
-function PokemonInput({name}) {
+function PokemonInput({name,add,remove}) {
     return (
         <li>
             {name}
-            <button>+1</button>
-            <button>-1</button>
+            <button onClick={()=>add(name)}>+1</button>
+            <button onClick={()=>remove(name)}>-1</button>
         </li>
     );
 }
 
 const Pokeballs = () => {
     const [pokeballs,setPokeballs] = useState([]);
+    const [addItemToCart,decrementItem] = useOutletContext();
 
     useEffect(() => {
         fetch("https://pokeapi.co/api/v2/item-category/34/", {mode:"cors"})
@@ -27,7 +28,7 @@ const Pokeballs = () => {
             .catch((error) => console.log(error));
     }, []);
 
-    const pokeballList = pokeballs.map(ball => <PokemonInput name={ball.name} key={ball.name}/>);
+    const pokeballList = pokeballs.map(ball => <PokemonInput name={ball.name} add={addItemToCart} remove={decrementItem} key={ball.name}/>);
 
     return (
         <div>

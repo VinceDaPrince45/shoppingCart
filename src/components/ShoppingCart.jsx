@@ -34,7 +34,7 @@ const ShoppingCart = () => {
                     ...updatedCartItems[itemIndex],
                     count: updatedCartItems[itemIndex].count - 1
                 };
-                setCartItems(updatedCartItems);
+                setCart(updatedCartItems);
             } else {
                 removeItemFromCart(itemName);
             }
@@ -51,7 +51,7 @@ const ShoppingCart = () => {
                     {displayCart}
                 </ul>
             </div>
-            <Outlet cart={cart} setCart={setCart} addToCart={addItemToCart} />
+            <Outlet context={[addItemToCart,decrementItem]}/>
         </div>
     );
     // will need to pass the cart and setCart as components to Outlet so each rendered component will be able to access the cart

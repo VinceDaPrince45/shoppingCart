@@ -4,8 +4,8 @@ import { Outlet } from "react-router-dom";
 function CartItem({item,remove}) {
     return (
         <li>
-            {item.name} - Quantity: {item.count}
-            <button onClick={()=>remove(item.name)}>X</button>
+            x{item.count} {item.name}
+            <button onClick={()=>remove(item.name)}>x</button>
         </li>
     );
 }
@@ -53,13 +53,15 @@ const ShoppingCart = () => {
     const displayCart = cart.map((item) => <CartItem item={item} remove={removeItemFromCart} key={item.name}/>);
 
     return (
-        <div>
-            <div>
-                <div>Current Cart:</div>
+        <div className="shopping-cart">
+            <ul className="framed buttons">
+                <li>
+                    <h3>Current Cart:</h3>
+                </li>
                 <ul>
                     {displayCart}
                 </ul>
-            </div>
+            </ul>
             <Outlet context={[addItemToCart,decrementItem]}/>
         </div>
     );

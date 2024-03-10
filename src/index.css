@@ -1806,11 +1806,37 @@
     background-size:cover;
   }
 
-  .home {
+  #root {
     display:flex;
-    flex-direction:column;
+    flex-direction:row;
+    height:100vh;
     justify-content:center;
     align-items:center;
-    height:100vh;
   }
 
+  .shopping-cart {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:1em;
+  }
+
+  .item-list {
+    overflow:scroll;
+    height:70vh;
+  }
+
+  .item {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+  }
+
+  .right-col {
+    display:flex;
+    flex-direction:column;
+  }
+
+  a {
+    color: black;
+  }

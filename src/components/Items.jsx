@@ -3,10 +3,12 @@ import { useState,useEffect } from "react";
 
 function ItemInput({name,add,remove}) {
     return (
-        <li>
-            {name}
-            <button onClick={()=>add(name)}>+</button>
-            <button onClick={()=>remove(name)}>-</button>
+        <li className="item">
+            <div className="item-name">{name}</div>
+            <div className="item-buttons">
+                <button onClick={()=>add(name)}>+</button>
+                <button onClick={()=>remove(name)}>-</button>
+            </div>
         </li>
     );
 }
@@ -25,22 +27,26 @@ const Items = () => {
     const list = itemList.map(item => <ItemInput name={item.name} add={addItemToCart} remove={decrementItem} key={item.name}/>);
 
     return (
-        <div>
+        <div className="right-col">
             <h1>Items</h1>
-            <div>
-                <button>
-                    <Link to="/cart/medicine">Go to medicine</Link>
-                </button>
-                <div> </div>
-                <button>
-                    <Link to="/cart/pokeball">Go to pokeballs</Link>
-                </button>
-                <div> </div>
-                <button>
-                    <Link to="/">Home</Link>
-                </button>
-            </div>
-            <ul>
+            <ul className="framed buttons compact">
+                <li>
+                    <button>
+                        <Link to="/cart/pokeball">&lt; pokeballs</Link>
+                    </button>
+                </li>
+                <li>
+                    <button>
+                        <Link to="/cart/medicine">medicine &gt;</Link>
+                    </button>
+                </li>
+                <li>
+                    <button>
+                        <Link to="/">Home</Link>
+                    </button>
+                </li>
+            </ul>
+            <ul className="framed buttons item-list">
                 {list}
             </ul>
         </div>

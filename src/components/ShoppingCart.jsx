@@ -1,6 +1,15 @@
 import { useState,useEffect } from "react"
 import { Outlet } from "react-router-dom";
 
+function CartItem({item,remove}) {
+    return (
+        <li>
+            {item.name} - Quantity: {item.count}
+            <button onClick={()=>remove(item.name)}>X</button>
+        </li>
+    );
+}
+
 const ShoppingCart = () => {
     const [cart,setCart] = useState([]);
     // add objects to array consisting of name and count
@@ -41,7 +50,7 @@ const ShoppingCart = () => {
         }
     }
 
-    const displayCart = cart.map((item) => <li key={item.name}>{item.name} - Quantity: {item.count}</li>);
+    const displayCart = cart.map((item) => <CartItem item={item} remove={removeItemFromCart} key={item.name}/>);
 
     return (
         <div>

@@ -31,6 +31,8 @@ const Items = () => {
                 <Link to="/cart/medicine">Go to medicine</Link>
                 <div> </div>
                 <Link to="/cart/pokeball">Go to pokeballs</Link>
+                <div> </div>
+                <Link to="/">Home</Link>
             </div>
             <ul>
                 {list}

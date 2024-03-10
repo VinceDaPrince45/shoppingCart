@@ -31,6 +31,8 @@ const Medicine = () => {
                 <Link to="/cart/items">Go to items</Link>
                 <div> </div>
                 <Link to="/cart/pokeball">Go to pokeballs</Link>
+                <div> </div>
+                <Link to="/">Home</Link>
             </div>
             <ul>
                 {medList}

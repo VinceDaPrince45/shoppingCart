@@ -4,17 +4,21 @@ const Choice = () => {
     return (
         <div>
             Choose what you want to buy
-            <ul>
-                <li>
+            <div>
+                <button>
                     <Link to="items">Items</Link>
-                </li>
-                <li>
+                </button>
+            </div>
+            <div>
+                <button>
                     <Link to="medicine">Medicine</Link>
-                </li>
-                <li>
+                </button>
+            </div>
+            <div>
+                <button>
                     <Link to="pokeball">Pokeballs</Link>
-                </li>
-            </ul>
+                </button>
+            </div>
         </div>
     );
 }

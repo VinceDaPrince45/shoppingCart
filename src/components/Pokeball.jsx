@@ -37,6 +37,8 @@ const Pokeballs = () => {
                 <Link to="/cart/items">Go to items</Link>
                 <div> </div>
                 <Link to="/cart/medicine">Go to medicine</Link>
+                <div> </div>
+                <Link to="/">Home</Link>
             </div>
             <ul>
                 {pokeballList}

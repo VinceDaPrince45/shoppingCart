@@ -41,7 +41,7 @@ const ShoppingCart = () => {
         }
     }
 
-    const displayCart = cart.map((item) => <li>{item.name} - Quantity: {item.count}</li>);
+    const displayCart = cart.map((item) => <li key={item.name}>{item.name} - Quantity: {item.count}</li>);
 
     return (
         <div>

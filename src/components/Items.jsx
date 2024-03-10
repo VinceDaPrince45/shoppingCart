@@ -1,8 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import { useState,useEffect } from "react";
+
+function ItemInput({name,add,remove}) {
+    return (
+        <li>
+            {name}
+            <button onClick={()=>add(name)}>+1</button>
+            <button onClick={()=>remove(name)}>-1</button>
+        </li>
+    );
+}
 
 const Items = () => {
     const [itemList,setItemList] = useState([]);
+    const [addItemToCart,decrementItem] = useOutletContext();
 
     useEffect(() => {
         fetch("https://pokeapi.co/api/v2/item-category/12/?limit=100000&offset=0.", { mode: "cors"})
@@ -11,7 +22,7 @@ const Items = () => {
             .catch((error) => console.log(error));
     }, []);
 
-    const list = itemList.map(item => <li key={item.name}>{item.name}</li>);
+    const list = itemList.map(item => <ItemInput name={item.name} add={addItemToCart} remove={decrementItem} key={item.name}/>);
 
     return (
         <div>
